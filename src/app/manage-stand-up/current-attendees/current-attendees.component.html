@@ -1,0 +1,10 @@
+<h1>Attendees of the Stand-Up</h1>
+<div class="card mb-3" style="width: 18rem;">
+    <div class="card-header">
+      Attendees
+    </div>
+    <ul class="list-group list-group-flush">
+      <app-attendee-item *ngFor="let attendee of attendees" [attendee]="attendee" (deleteAttendee)="deleteAttendee($event)">
+      </app-attendee-item>
+    </ul>
+  </div>

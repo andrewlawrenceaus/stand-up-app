@@ -5,14 +5,26 @@ import { Subject } from "rxjs";
     providedIn: 'root'
 })
 export class StandUpService {
-    attendeesChanged = new Subject<string[]>
+    attendeesChanged = new Subject<string[]>();
     private attendees: string[] = [];
 
-    constructor(){
+    constructor() {
     }
 
-    addAttendee(name: string){
+    addAttendee(name: string) {
         this.attendees.push(name);
+        this.attendeesChanged.next(this.attendees);
+    }
+
+    getAttendees() {
+        return this.attendees;
+    }
+
+    removeAttendee(name: string) {
+        const index = this.attendees.indexOf(name, 0);
+        if (index > -1) {
+            this.attendees.splice(index, 1);
+        }
         this.attendeesChanged.next(this.attendees);
     }
 }
