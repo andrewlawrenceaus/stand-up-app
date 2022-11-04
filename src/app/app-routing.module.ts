@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: 'manage-stand-up', loadChildren: () => import('./manage-stand-up/manage-stand-up.module')
       .then(m => m.ManageStandUpModule)
+  },
+  {
+    path: 'run-stand-up', loadChildren: () => import('./run-stand-up/Run-stand-up.module')
+      .then(m => m.RunStandUpModule)
   }
 ];
 
