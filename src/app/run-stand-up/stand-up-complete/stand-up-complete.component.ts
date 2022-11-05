@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-stand-up-complete',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stand-up-complete.component.css']
 })
 export class StandUpCompleteComponent implements OnInit {
+  @Output() resetStandUp = new EventEmitter<undefined>();
 
   constructor() { }
 
@@ -13,7 +14,7 @@ export class StandUpCompleteComponent implements OnInit {
   }
 
   onReset(){
-    
+    this.resetStandUp.emit();
   }
 
 }

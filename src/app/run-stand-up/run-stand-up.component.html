@@ -3,6 +3,6 @@
 </div>
 <div class="d-flex justify-content-center">
     <app-start-stand-up *ngIf="showStartStandUp" (startStandUp)="onStartStandUp()"></app-start-stand-up>
-    <app-show-attendee *ngIf="showAttendee"></app-show-attendee>
-    <app-stand-up-complete *ngIf="showStandUpComplete"></app-stand-up-complete>
+    <app-show-attendee *ngIf="showAttendee" [name]="standUpSessionAttendees[0]" (nextAttendee)="onNextAttendee()"></app-show-attendee>
+    <app-stand-up-complete *ngIf="showStandUpComplete" (resetStandUp)="onResetStandUp()"></app-stand-up-complete>
 </div>

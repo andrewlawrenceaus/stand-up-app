@@ -1,5 +1,17 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">Stand Up</span>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a [routerLink]="['/manage-stand-up']" [routerLinkActive]="['active']" class="nav-link">Manage Stand Up</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a [routerLink]="['/run-stand-up']" [routerLinkActive]="['active']" class="nav-link">Run Stand Up</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>

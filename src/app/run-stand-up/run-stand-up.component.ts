@@ -45,5 +45,17 @@ export class RunStandUpComponent implements OnInit {
     }
   }
 
+  onNextAttendee(){
+    this.standUpSessionAttendees.splice(0,1);
+    if (this.standUpSessionAttendees.length === 0){
+      this.showAttendee = false;
+      this.showStandUpComplete = true;
+    }
+  }
+
+  onResetStandUp(){
+    this.showStandUpComplete = false;
+    this.showStartStandUp = true;
+  }
 
 }

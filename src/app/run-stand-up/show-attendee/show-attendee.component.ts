@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-show-attendee',
@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-attendee.component.css']
 })
 export class ShowAttendeeComponent implements OnInit {
+  @Input() name: string = '';
+  @Output() nextAttendee = new EventEmitter<undefined>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onNextAttendee(){}
+  onNextAttendee(){
+    this.nextAttendee.emit();
+  }
 
 }
