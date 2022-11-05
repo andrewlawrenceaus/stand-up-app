@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { StandUpService } from '../shared/stand-up.service';
 
@@ -7,7 +7,7 @@ import { StandUpService } from '../shared/stand-up.service';
   templateUrl: './run-stand-up.component.html',
   styleUrls: ['./run-stand-up.component.css']
 })
-export class RunStandUpComponent implements OnInit {
+export class RunStandUpComponent implements OnInit, OnDestroy {
   showStartStandUp: boolean = true;
   showStandUpComplete: boolean = false;
   showAttendee: boolean = false;
@@ -28,6 +28,10 @@ export class RunStandUpComponent implements OnInit {
     this.attendees = this.standUpService.getAttendees();
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   onStartStandUp() {
     this.initialiseStandUpAttendees();
     this.showStartStandUp = false;
@@ -45,15 +49,15 @@ export class RunStandUpComponent implements OnInit {
     }
   }
 
-  onNextAttendee(){
-    this.standUpSessionAttendees.splice(0,1);
-    if (this.standUpSessionAttendees.length === 0){
+  onNextAttendee() {
+    this.standUpSessionAttendees.splice(0, 1);
+    if (this.standUpSessionAttendees.length === 0) {
       this.showAttendee = false;
       this.showStandUpComplete = true;
     }
   }
 
-  onResetStandUp(){
+  onResetStandUp() {
     this.showStandUpComplete = false;
     this.showStartStandUp = true;
   }

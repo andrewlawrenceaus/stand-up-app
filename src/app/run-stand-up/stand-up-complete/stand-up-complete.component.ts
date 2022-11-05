@@ -1,17 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-stand-up-complete',
   templateUrl: './stand-up-complete.component.html',
   styleUrls: ['./stand-up-complete.component.css']
 })
-export class StandUpCompleteComponent implements OnInit {
+export class StandUpCompleteComponent {
   @Output() resetStandUp = new EventEmitter<undefined>();
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onReset(){
     this.resetStandUp.emit();
