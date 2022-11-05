@@ -9,6 +9,9 @@ export class StandUpService {
     private attendees: string[] = [];
 
     constructor() {
+        this.attendees.push(
+            ...['Andrew','Jess','Calvin','Scully']
+        )
     }
 
     addAttendee(name: string) {

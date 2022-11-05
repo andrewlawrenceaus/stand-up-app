@@ -1,6 +1,8 @@
-<h1>Run Stand Up</h1>
 <div class="d-flex justify-content-center">
-    <app-start-stand-up></app-start-stand-up>
-    <app-show-attendee></app-show-attendee>
-    <app-stand-up-complete></app-stand-up-complete>
+    <h1>Run Stand Up</h1>
+</div>
+<div class="d-flex justify-content-center">
+    <app-start-stand-up *ngIf="showStartStandUp" (startStandUp)="onStartStandUp()"></app-start-stand-up>
+    <app-show-attendee *ngIf="showAttendee"></app-show-attendee>
+    <app-stand-up-complete *ngIf="showStandUpComplete"></app-stand-up-complete>
 </div>
