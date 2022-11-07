@@ -10,8 +10,10 @@ export class StandUpService {
 
     constructor() {
         this.attendees.push(
-            ...['Andrew','Jess','Calvin','Scully']
-        )
+            ...['Andrew','Caitlin',
+            'Evan','Grant','Jono','Kathleen',
+            'Ryan','Sam','Sharon','Sherri','Tim']
+        );
     }
 
     addAttendee(name: string) {

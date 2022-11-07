@@ -1,0 +1,8 @@
+<form [formGroup]="attendeeForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" id="name" formControlName="name" class="form-control" placeholder="New Attendee">
+            </div>
+        <button type="submit"
+            class="btn btn-success"
+            [disabled]="attendeeForm.invalid">Add Attendee</button>
+</form>

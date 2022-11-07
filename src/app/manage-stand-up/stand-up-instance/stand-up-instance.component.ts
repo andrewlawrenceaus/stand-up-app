@@ -1,13 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { StandUpService } from 'src/app/shared/stand-up.service';
 
 @Component({
-  selector: 'app-current-attendees',
-  templateUrl: './current-attendees.component.html',
-  styleUrls: ['./current-attendees.component.css']
+  selector: 'app-stand-up-instance',
+  templateUrl: './stand-up-instance.component.html',
+  styleUrls: ['./stand-up-instance.component.css']
 })
-export class CurrentAttendeesComponent implements OnInit, OnDestroy {
+export class StandUpInstanceComponent implements OnInit, OnDestroy {
+  @Input() standUpName: string = '';
 
   attendees: string[] = [];
   subscription: Subscription = new Subscription;
