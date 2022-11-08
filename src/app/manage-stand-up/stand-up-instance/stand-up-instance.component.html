@@ -5,7 +5,7 @@
     <ul class="list-group list-group-flush">
       <app-attendee-item *ngFor="let attendee of attendees" [attendee]="attendee" (deleteAttendee)="deleteAttendee($event)">
       </app-attendee-item>
-      <app-add-attendee></app-add-attendee>
+      <app-add-attendee (newAttendee)="addAttendee($event)"></app-add-attendee>
       <button class="btn btn-primary" [routerLink]="['/run-stand-up']">Start Stand Up</button>
     </ul>
   </div>

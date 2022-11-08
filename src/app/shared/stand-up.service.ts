@@ -5,31 +5,44 @@ import { Subject } from "rxjs";
     providedIn: 'root'
 })
 export class StandUpService {
-    attendeesChanged = new Subject<string[]>();
-    private attendees: string[] = [];
+    standUpsChanged = new Subject<Map<string, string[]>>();
+    private standUps: Map<string, string[]> = new Map;
+    private activeStandUp: string = '';
 
     constructor() {
-        this.attendees.push(
-            ...['Andrew','Caitlin',
-            'Evan','Grant','Jono','Kathleen',
-            'Ryan','Sam','Sharon','Sherri','Tim']
-        );
+        this.standUps.set('Helios',['Andrew','Caitlin',
+        'Evan','Grant','Jono','Kathleen',
+        'Ryan','Sam','Sharon','Sherri','Tim'])
+        this.activeStandUp = 'Helios'
     }
 
-    addAttendee(name: string) {
-        this.attendees.push(name);
-        this.attendeesChanged.next(this.attendees);
-    }
-
-    getAttendees() {
-        return this.attendees;
-    }
-
-    removeAttendee(name: string) {
-        const index = this.attendees.indexOf(name, 0);
-        if (index > -1) {
-            this.attendees.splice(index, 1);
+    addAttendee(name: string, standUp: string) {
+            let standUpAttendees = this.standUps.get(standUp);
+            if (standUpAttendees !== undefined){
+                standUpAttendees.push(name);
+                this.standUps.set(standUp,standUpAttendees)
+                this.standUpsChanged.next(this.standUps);
+            }
         }
-        this.attendeesChanged.next(this.attendees);
+
+    getStandUps(): Map<string, string[]> {
+        return this.standUps;
+    }    
+
+    getActiveAttendees(): string[] {
+        let activeAttendees = this.standUps.get(this.activeStandUp);
+        return (activeAttendees === undefined) ? [] : activeAttendees;
+    }
+
+    removeAttendee(name: string, standUp: string) {
+        let standUpAttendees = this.standUps.get(standUp);
+        if (standUpAttendees != undefined){
+            const index = standUpAttendees.indexOf(name, 0);
+            if (index > -1) {
+                standUpAttendees.splice(index, 1);
+            }
+            this.standUps.set(standUp, standUpAttendees);
+            this.standUpsChanged.next(this.standUps);
+        }
     }
 }

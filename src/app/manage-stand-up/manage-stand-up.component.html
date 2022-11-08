@@ -1,2 +1,2 @@
 <h1>Manage Stand Ups</h1>
-<app-stand-up-instance [standUpName]="'Helios'"></app-stand-up-instance>
+<app-stand-up-instance *ngFor="let standUpName of standUps.keys()" [standUpName]="standUpName"></app-stand-up-instance>

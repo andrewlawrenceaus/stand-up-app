@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { StandUpService } from 'src/app/shared/stand-up.service';
 
 @Component({
   selector: 'app-add-attendee',
@@ -9,8 +8,9 @@ import { StandUpService } from 'src/app/shared/stand-up.service';
 })
 export class AddAttendeeComponent implements OnInit {
   attendeeForm: FormGroup = new FormGroup('');
+  @Output() newAttendee = new EventEmitter<string>();
 
-  constructor(private standUpService: StandUpService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.attendeeForm = new FormGroup({
@@ -19,8 +19,7 @@ export class AddAttendeeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.standUpService
-      .addAttendee(this.attendeeForm.value.name)
+    this.newAttendee.emit(this.attendeeForm.value.name);
     this.attendeeForm.get('name')?.reset();  
   }
 
