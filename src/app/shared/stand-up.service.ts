@@ -10,9 +10,12 @@ export class StandUpService {
     private activeStandUp: string = '';
 
     constructor() {
-        this.standUps.set('Helios',['Andrew','Caitlin',
+        this.standUps.set('helios',['Andrew','Caitlin',
         'Evan','Grant','Jono','Kathleen',
         'Ryan','Sam','Sharon','Sherri','Tim'])
+        this.standUps.set('billabong',['Andrew L','Anthony',
+        'Sandra','Evan','Jono','Kathleen',
+        'Kane','Sam','Nik','Tim','Nikunj','Andrew B'])
         this.activeStandUp = 'Helios'
     }
 

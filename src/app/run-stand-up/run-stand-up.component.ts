@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { StandUpService } from '../shared/stand-up.service';
 
 @Component({
@@ -12,15 +12,25 @@ export class RunStandUpComponent implements OnInit {
   showStandUpComplete: boolean = false;
   showAttendee: boolean = false;
 
+  standUpName: string = '';
   attendees: string[] = [];
   standUpSessionAttendees: string[] = [];
 
-  constructor(private standUpService: StandUpService) { }
+  constructor(private route: ActivatedRoute, private standUpService: StandUpService) { }
 
   ngOnInit(): void {
-    this.attendees = this.standUpService.getActiveAttendees();
+    this.route.queryParams
+      .subscribe(
+        (params: Params) => {
+          console.log(params['stand-up'])
+          let standUpName = params['stand-up'];
+          let attendess = this.standUpService.getStandUps().get(standUpName);
+          this.standUpName = standUpName.charAt(0).toUpperCase() + standUpName.slice(1).toLowerCase();
+          this.attendees = (attendess === undefined) ? [] : attendess;
+        }
+      )
   }
-
+    
   onStartStandUp() {
     this.initialiseStandUpAttendees();
     this.showStartStandUp = false;
