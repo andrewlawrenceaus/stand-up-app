@@ -1,0 +1,9 @@
+<h2>Create New Stand Up</h2>
+<form [formGroup]="standUpForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Stand Up Name">
+    </div>
+<button type="submit"
+    class="btn btn-success"
+    [disabled]="standUpForm.invalid">Create Stand Up</button> 
+</form>

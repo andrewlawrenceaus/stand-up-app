@@ -51,5 +51,11 @@ export class StandUpService {
 
     deleteStandUp(standUp: string){
         this.standUps.delete(standUp);
+        this.standUpsChanged.next(this.standUps);
+    }
+
+    addStandUp(standUp: string){
+        this.standUps.set(standUp,[]);
+        this.standUpsChanged.next(this.standUps);
     }
 }

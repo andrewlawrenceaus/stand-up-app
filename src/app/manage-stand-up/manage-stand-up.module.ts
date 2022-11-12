@@ -7,13 +7,15 @@ import { StandUpInstanceComponent } from './stand-up-instance/stand-up-instance.
 import { AttendeeItemComponent } from './stand-up-instance/attendee-item/attendee-item.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { AddStandUpComponent } from './add-stand-up/add-stand-up.component';
 
 @NgModule({
     declarations: [
         ManageStandUpComponent,
         AddAttendeeComponent,
         StandUpInstanceComponent,
-        AttendeeItemComponent
+        AttendeeItemComponent,
+        AddStandUpComponent
     ],
     imports: [
         RouterModule,
