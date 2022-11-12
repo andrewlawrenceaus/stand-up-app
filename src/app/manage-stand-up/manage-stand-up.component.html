@@ -1,13 +1,15 @@
 <div class="row">
-    <h1>Manage Stand Ups</h1>
+    <div class="d-flex justify-content-center">
+        <h1>Manage Stand Ups</h1>
+    </div>
 </div>
 <div class="row">
-    <div class="col-sm-6" *ngFor="let standUpName of standUps.keys()" >
+    <div class="col-md-6" *ngFor="let standUpName of standUps.keys()" >
         <app-stand-up-instance [standUpName]="standUpName"></app-stand-up-instance>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6">
         <app-add-stand-up></app-add-stand-up>
     </div>
 </div>
