@@ -8,6 +8,6 @@
     <app-attendee-item *ngFor="let attendee of attendees" [attendee]="attendee"
       (deleteAttendee)="deleteAttendee($event)">
     </app-attendee-item>
-    <app-add-attendee (newAttendee)="addAttendee($event)"></app-add-attendee>
+      <app-add-attendee (newAttendee)="addAttendee($event)" (deleteStandUp)="onDeleteStandUp()"></app-add-attendee>
   </ul>
 </div>

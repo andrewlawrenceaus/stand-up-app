@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AddAttendeeComponent implements OnInit {
   attendeeForm: FormGroup = new FormGroup('');
   @Output() newAttendee = new EventEmitter<string>();
+  @Output() deleteStandUp = new EventEmitter<undefined>();
 
   constructor() { }
 
@@ -21,6 +22,10 @@ export class AddAttendeeComponent implements OnInit {
   onSubmit() {
     this.newAttendee.emit(this.attendeeForm.value.name);
     this.attendeeForm.get('name')?.reset();  
+  }
+
+  onDeleteStandUp(){
+    this.deleteStandUp.emit();
   }
 
 }

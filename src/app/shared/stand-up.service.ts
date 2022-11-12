@@ -48,4 +48,8 @@ export class StandUpService {
             this.standUpsChanged.next(this.standUps);
         }
     }
+
+    deleteStandUp(standUp: string){
+        this.standUps.delete(standUp);
+    }
 }

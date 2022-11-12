@@ -40,4 +40,10 @@ export class StandUpInstanceComponent implements OnInit, OnDestroy {
     this.standUpService.removeAttendee(attendeeName, this.standUpName);
   }
 
+  onDeleteStandUp(){
+    if(confirm("Are you sure to delete "+ this.standUpName)) {
+    this.standUpService.deleteStandUp(this.standUpName);
+    }
+  }
+
 }
