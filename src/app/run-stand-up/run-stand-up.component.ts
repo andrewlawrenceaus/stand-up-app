@@ -23,9 +23,8 @@ export class RunStandUpComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           console.log(params['stand-up'])
-          let standUpName = params['stand-up'];
-          let attendess = this.standUpService.getStandUps().get(standUpName);
-          this.standUpName = standUpName.charAt(0).toUpperCase() + standUpName.slice(1).toLowerCase();
+          this.standUpName = params['stand-up'];
+          let attendess = this.standUpService.getStandUps().get(this.standUpName);
           this.attendees = (attendess === undefined) ? [] : attendess;
         }
       )

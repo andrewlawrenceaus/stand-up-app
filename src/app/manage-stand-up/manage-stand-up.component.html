@@ -1,2 +1,9 @@
-<h1>Manage Stand Ups</h1>
-<app-stand-up-instance *ngFor="let standUpName of standUps.keys()" [standUpName]="standUpName"></app-stand-up-instance>
+<div class="row">
+    <h1>Manage Stand Ups</h1>
+</div>
+<div class="row">
+    <div class="col-sm-6" *ngFor="let standUpName of standUps.keys()" >
+        <app-stand-up-instance [standUpName]="standUpName"></app-stand-up-instance>
+    </div>
+
+</div>

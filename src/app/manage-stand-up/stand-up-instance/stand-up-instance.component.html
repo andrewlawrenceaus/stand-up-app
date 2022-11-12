@@ -1,15 +1,13 @@
-<div class="col-md-6">
-  <div class="card mb-3" style="width: 18rem;">
-    <div class="card-header">
-      {{standUpName}}
-    </div>
-    <ul class="list-group list-group-flush">
-      <app-attendee-item *ngFor="let attendee of attendees" [attendee]="attendee"
-        (deleteAttendee)="deleteAttendee($event)">
-      </app-attendee-item>
-      <app-add-attendee (newAttendee)="addAttendee($event)"></app-add-attendee>
-      <button class="btn btn-primary" [routerLink]="['/run-stand-up']" [queryParams]="{ 'stand-up': standUpName}">Start
-        Stand Up</button>
-    </ul>
+<div class="card mb-3" style="width: 18rem;">
+  <div class="card-header">
+    <span class="h2">{{standUpName}}</span>
+    <button class="btn btn-primary float-end" [routerLink]="['/run-stand-up']"
+      [queryParams]="{ 'stand-up': standUpName}">Start</button>
   </div>
+  <ul class="list-group list-group-flush">
+    <app-attendee-item *ngFor="let attendee of attendees" [attendee]="attendee"
+      (deleteAttendee)="deleteAttendee($event)">
+    </app-attendee-item>
+    <app-add-attendee (newAttendee)="addAttendee($event)"></app-add-attendee>
+  </ul>
 </div>
